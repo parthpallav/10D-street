@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "Luxury";
+  src: url("../../public/Luxury.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../../public/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../../public/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../../public/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+
+:root {
+  --gold: #c8a65c;
+  --gold-light: #fadda1;
+  --ink: #0e0905;
+  --brown: #2f190b;
+  --white: #fff;
+  --glass: rgba(255, 255, 255, 0.16);
+  --glass-dark: rgba(35, 24, 20, 0.74);
+  --gold-gradient: linear-gradient(100deg, #c8a65c, #ffe3a8 50%, #c8a65c);
+  --heading-gradient: linear-gradient(110deg, #c8a65c, #ffe3a8 48%, #c8a65c);
+  --shell: min(1332px, calc(100% - 48px));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--white);
+  background: var(--ink);
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
