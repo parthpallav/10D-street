@@ -159,6 +159,7 @@
   background-image: url("../../public/image0_0.jpeg");
 }
 
+
 .legacy::before {
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.52) 48%, rgba(0, 0, 0, 0.08) 100%);
 }
@@ -215,7 +216,6 @@
   height: auto;
   display: block;
   border-radius: 17px;
-  object-fit: cover;
 }
 
 .choice {
@@ -432,8 +432,11 @@
 
 .testimonial-image img {
   width: 100%;
+  height: auto;
+  max-height: 600px;
   display: block;
   object-fit: cover;
+  object-position: center top;
 }
 
 .testimonial__eyebrow {
@@ -601,6 +604,23 @@
   .testimonial__card {
     width: 100%;
   }
+
+  /* Tablet: stack choice cards */
+  .choice article {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+    padding: 1rem 1.5rem;
+  }
+
+  /* Tablet: network 2-col is fine, but reduce font */
+  .network h4 {
+    font-size: 1.2rem;
+  }
+
+  /* Tablet: stories 2-col stays, reduce padding */
+  .stories article {
+    padding: 1.5rem 1.75rem;
+  }
 }
 
 @media (max-width: 680px) {
@@ -608,51 +628,80 @@
     --shell: min(100% - 30px, 1332px);
   }
 
+  /* Hero */
   .hero {
-    min-height: 720px;
+    min-height: 100svh;
+    padding: 2rem 1rem 4rem;
   }
 
   .hero__logo {
-    width: 100px;
-    margin-bottom: 1rem;
+    width: 90px;
+    margin-bottom: 0.75rem;
   }
 
   .hero__headline {
-    width: min(500px, 94%);
+    width: min(500px, 92%);
   }
 
-  .hero__action p {
-    padding: 0.85rem 1rem;
+  .hero__strip {
+    height: auto;
+    padding: 0.75rem 1rem;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    white-space: normal;
+    text-align: center;
   }
 
+  /* Legacy */
   .legacy {
-    min-height: 720px;
-    padding-top: 4rem;
-    background-position: 64% center;
+    min-height: 0;
+    padding: 4rem 1rem;
+    background-position: 30% center;
   }
 
   .legacy::before {
-    background: rgba(0, 0, 0, 0.66);
+    background: rgba(0, 0, 0, 0.78);
   }
 
   .legacy p {
-    margin: 2.5rem 0;
+    width: 100%;
+    margin: 2rem 0;
+    font-size: 1rem;
     line-height: 1.75;
   }
 
-  .gallery,
-  .choice,
-  .facts,
-  .network,
-  .stories,
-  .enquire {
-    min-height: 0;
-    padding: 4rem 1rem;
+  .legacy .button {
+    margin-top: 2rem;
   }
 
-  .gallery__grid {
-    grid-template-rows: repeat(4, 170px);
-    gap: 0.6rem;
+  .legacy p {
+    width: 100%;
+    margin: 2rem 0;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .legacy .button {
+    margin-top: 2rem;
+  }
+
+  /* Gallery */
+  .gallery {
+    padding: 3rem 1rem;
+  }
+
+  .gallery__single {
+    width: 100%;
+  }
+
+  .gallery__single img {
+    border-radius: 12px;
+  }
+
+  /* Choice */
+  .choice {
+    min-height: 0;
+    padding: 4rem 1rem;
   }
 
   .choice article {
@@ -661,18 +710,56 @@
     padding: 1rem 1.2rem;
   }
 
-  .facts__grid,
-  .network__grid,
-  .stories__grid {
-    grid-template-columns: 1fr;
+  /* Facts */
+  .facts {
+    min-height: 0;
+    padding: 4rem 1rem;
   }
 
   .facts__grid {
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
   }
 
-  .facts__grid article {
-    padding: 1rem;
+  /* last fact card spans full width on odd count */
+  .facts__grid article:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  /* Network */
+  .network {
+    min-height: 0;
+    padding: 4rem 1rem;
+  }
+
+  .network h3 {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+  }
+
+  .network h4 {
+    font-size: 1rem;
+    margin: 1.75rem 0 1rem;
+  }
+
+  .network__grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .network__grid div {
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  /* Stories */
+  .stories {
+    min-height: 0;
+    padding: 4rem 1rem;
+  }
+
+  .stories__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   .stories article {
@@ -680,34 +767,29 @@
     padding: 1.5rem;
   }
 
-  .testimonial {
+  /* Testimonial image — tall 1920×1924 asset, cap on mobile */
+  .testimonial-image img {
+    max-height: 380px;
+  }
+
+  /* Enquire / Form */
+  .enquire {
     min-height: 0;
-    padding: 4rem 1rem;
-  }
-
-  .testimonial__quote {
-    display: none;
-  }
-
-  .testimonial__card,
-  .testimonial--second .testimonial__card {
-    border-radius: 24px;
-    padding: 1.5rem;
-  }
-
-  .testimonial__card > p:not(.testimonial__eyebrow) {
-    text-align: left;
+    padding: 4rem 1rem 5rem;
   }
 
   .enquire form {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   .form-wide {
     grid-column: auto;
   }
 
+  /* Footer */
   .site-footer {
     min-height: 0;
+    padding: 3.5rem 1rem;
   }
 }
