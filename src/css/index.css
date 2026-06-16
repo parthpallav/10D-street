@@ -847,7 +847,7 @@
 
   /* --- Mobile Testimonials --- */
   .testimonials__card {
-    padding: 0;
+    padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 3vw, 2rem);
     display: block;
     min-height: 0;
   }
@@ -987,7 +987,7 @@
 /* Tablet testimonial overrides: 681px–1024px */
 @media (min-width: 681px) and (max-width: 1024px) {
   .testimonials__card {
-    padding: 0 !important;
+    padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 3vw, 2rem);
     min-height: 0 !important;
     height: auto !important;
   }
