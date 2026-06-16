@@ -1,3 +1,4 @@
+
 .section-shell {
   width: var(--shell);
   margin: 0 auto;
@@ -845,7 +846,7 @@
 
   /* --- Mobile Testimonials --- */
   .testimonials__card {
-    padding: 2.5rem 1rem;
+    padding: 4rem 1rem;
     display: block;
     min-height: 0;
   }
@@ -868,20 +869,43 @@
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 1.5rem;
-    overflow: hidden;
+    overflow: visible;
   }
 
-  /* Quote mark decoration at top-left using ::before */
-  .testimonials__mobile-wrap::before {
+  /* No quote on wrap itself */
+  .testimonials__mobile-wrap::before,
+  .testimonials__mobile-wrap::after {
+    content: none;
+  }
+
+  /* Open quote on card level — sits above everything */
+  .testimonials__card--first::after {
     content: "\201C";
     position: absolute;
-    top: -0.5rem;
-    left: 1rem;
-    font-size: 5rem;
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 14rem;
     line-height: 1;
-    color: rgba(255, 255, 255, 0.18);
-    font-family: Georgia, serif;
+    color: rgba(255, 255, 255, 0.25);
+    font-family: "Black Ops One", Georgia, serif;
+    font-style: normal;
     pointer-events: none;
+    z-index: 10;
+  }
+
+  /* Close quote on card level — sits above everything */
+  .testimonials__card--second::after {
+    content: "\201D";
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 14rem;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.25);
+    font-family: "Black Ops One", Georgia, serif;
+    font-style: normal;
+    pointer-events: none;
+    z-index: 10;
   }
 
   .testimonials__mobile-svg-img {
@@ -928,11 +952,7 @@
     text-align: left;
   }
 
-  .testimonials__card--second .testimonials__mobile-wrap::before {
-    left: auto;
-    right: 1rem;
-    content: "\201D";
-  }
+
 
   .testimonials__mobile-text .testimonials__name {
     font-size: 0.9rem;
