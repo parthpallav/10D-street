@@ -85,7 +85,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 2.5rem 1.5rem 5.5rem;
-  background: url("../../public/Page-1-New-copy-4@2x.png") center / cover no-repeat;
+  background: url("../../public/Page-1-New-copy-4@2x.webp") center / cover no-repeat;
   text-align: center;
 }
 
@@ -156,7 +156,7 @@
   display: grid;
   place-items: start center;
   padding: 4.5rem 1.5rem;
-  background-image: url("../../public/image0_0.jpeg");
+  background-image: url("../../public/image0_0.webp");
 }
 
 
@@ -223,7 +223,7 @@
   display: grid;
   align-content: center;
   padding: 4rem 1.5rem 3.5rem;
-  background: linear-gradient(rgba(0,0,0,0.24), rgba(0,0,0,0.24)), url("../../public/Group-200@3x.png") center / cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.24), rgba(0,0,0,0.24)), url("../../public/Group-200@3x.webp") center / cover no-repeat;
 }
 
 .choice::before {
@@ -273,7 +273,7 @@
   display: grid;
   align-content: center;
   padding: 3.5rem 1.5rem 3rem;
-  background: url("../../public/Rectangle 125.png") center / cover no-repeat;
+  background: url("../../public/Rectangle 125.webp") center / cover no-repeat;
 }
 
 .facts__grid {
@@ -326,7 +326,7 @@
   display: grid;
   align-content: center;
   padding: 3.5rem 1.5rem 3.5rem;
-  background: linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0.38)), url("../../public/image0_16.jpeg") center / cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0.38)), url("../../public/image0_16.webp") center / cover no-repeat;
 }
 
 .network::before {
@@ -383,7 +383,7 @@
   display: grid;
   align-content: center;
   padding: 3.5rem 1.5rem;
-  background: url("../../public/Success-Stories-2@2x.png") center / cover no-repeat;
+  background: url("../../public/Success-Stories-2@2x.webp") center / cover no-repeat;
 }
 
 .stories::before {
@@ -441,11 +441,11 @@
 }
 
 .testimonials__card--first {
-  background: url("../../public/testimonial-bg-1.png") center / cover no-repeat;
+  background: url("../../public/testimonial-bg-1.webp") center / cover no-repeat;
 }
 
 .testimonials__card--second {
-  background: url("../../public/testimonial-bg-2.png") center / cover no-repeat;
+  background: url("../../public/testimonial-bg-2.webp") center / cover no-repeat;
 }
 
 .testimonials__card::before {
@@ -560,7 +560,7 @@
   display: grid;
   align-content: center;
   padding: 4rem 1.5rem 5rem;
-  background: linear-gradient(rgba(0,0,0,0.36), rgba(0,0,0,0.36)), url("../../public/Rectangle 124.png") center / cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.36), rgba(0,0,0,0.36)), url("../../public/Rectangle 124.webp") center / cover no-repeat;
 }
 
 .enquire form {
@@ -645,7 +645,7 @@
   align-content: center;
   border-top: 1px solid rgba(200, 166, 92, 0.35);
   padding: 4.5rem 1.5rem;
-  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../public/Rectangle 125.png") center / cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../public/Rectangle 125.webp") center / cover no-repeat;
   text-align: center;
 }
 
