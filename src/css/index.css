@@ -152,10 +152,10 @@
 
 
 .legacy {
-  min-height: 1080px;
+  min-height: 780px;
   display: grid;
   place-items: start center;
-  padding: 6.5rem 1.5rem;
+  padding: 4.5rem 1.5rem;
   background-image: url("../../public/image0_0.jpeg");
 }
 
@@ -179,21 +179,21 @@
 
 .legacy p {
   width: min(570px, 100%);
-  margin: 4rem 0 4rem;
+  margin: 2.5rem 0 2.5rem;
   font-size: clamp(1rem, 1.5vw, 1.45rem);
   line-height: 2;
   text-align: left;
 }
 
 .legacy .button {
-  margin-top: 10rem;
+  margin-top: 2.5rem;
 }
 
 .gallery {
   min-height: 0;
   display: grid;
   align-content: center;
-  padding: 6rem 1.5rem 4.5rem;
+  padding: 3.5rem 1.5rem 3rem;
   background: #301807;
   text-align: center;
 }
@@ -219,10 +219,10 @@
 }
 
 .choice {
-  min-height: 1080px;
+  min-height: 0;
   display: grid;
   align-content: center;
-  padding: 6rem 1.5rem 5rem;
+  padding: 4rem 1.5rem 3.5rem;
   background: linear-gradient(rgba(0,0,0,0.24), rgba(0,0,0,0.24)), url("../../public/Group-200@3x.png") center / cover no-repeat;
 }
 
@@ -269,10 +269,10 @@
 }
 
 .facts {
-  min-height: 760px;
+  min-height: 0;
   display: grid;
   align-content: center;
-  padding: 5rem 1.5rem 4.5rem;
+  padding: 3.5rem 1.5rem 3rem;
   background: url("../../public/Rectangle 125.png") center / cover no-repeat;
 }
 
@@ -322,10 +322,10 @@
 }
 
 .network {
-  min-height: 1080px;
+  min-height: 0;
   display: grid;
   align-content: center;
-  padding: 4.5rem 1.5rem 5rem;
+  padding: 3.5rem 1.5rem 3.5rem;
   background: linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0.38)), url("../../public/image0_16.jpeg") center / cover no-repeat;
 }
 
@@ -379,10 +379,10 @@
 }
 
 .stories {
-  min-height: 1080px;
+  min-height: 0;
   display: grid;
   align-content: center;
-  padding: 5rem 1.5rem;
+  padding: 3.5rem 1.5rem;
   background: url("../../public/Success-Stories-2@2x.png") center / cover no-repeat;
 }
 
@@ -425,65 +425,141 @@
   line-height: 1.9;
 }
 
-.testimonial-image {
-  padding: 0;
-  background: transparent;
+/* ── Testimonials ──────────────────────────────────────────── */
+.testimonials {
+  display: flex;
+  flex-direction: column;
 }
 
-.testimonial-image img {
-  width: 100%;
-  height: auto;
-  max-height: 600px;
+.testimonials__card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 3rem;
+  overflow: visible;
+}
+
+.testimonials__card--first {
+  background: url("../../public/testimonial-bg-1.png") center / cover no-repeat;
+}
+
+.testimonials__card--second {
+  background: url("../../public/testimonial-bg-2.png") center / cover no-repeat;
+}
+
+.testimonials__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 2, 0, 0.35);
+}
+
+/* Desktop SVG card */
+.testimonials__svg {
   display: block;
-  object-fit: cover;
-  object-position: center top;
+  width: min(1100px, 90%);
+  z-index: 2;
+  overflow: visible;
 }
 
-.testimonial__eyebrow {
-  margin-bottom: 0;
-  color: #fff;
-  font-family: "Luxury", serif;
-  font-size: 1.2rem;
+/* Mobile elements — hidden on desktop */
+.testimonials__svg--mobile,
+.testimonials__mobile-wrap {
+  display: none;
 }
 
-.testimonial h2 {
-  margin: 0 0 1rem;
-  color: var(--gold-light);
-  font-family: "Luxury", serif;
-  font-size: 2rem;
-  font-weight: 400;
-  text-transform: uppercase;
+
+.testimonials__path {
+  fill: rgba(255, 255, 255, 0.1);
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 1.5;
 }
 
-.testimonial__card > p:not(.testimonial__eyebrow) {
-  font-size: 0.72rem;
-  line-height: 1.8;
-  text-align: justify;
+/* foreignObject carries the HTML text — height set large in HTML, auto-sized by JS */
+.testimonials__fo {
+  overflow: visible;
 }
 
-.testimonial footer {
-  color: var(--gold-light);
-  font-family: "Luxury", serif;
-  font-size: 1.5rem;
+/* Text inside foreignObject — natural flow */
+.testimonials__text {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2.5rem 2rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.testimonials__text--right .testimonials__eyebrow,
+.testimonials__text--right .testimonials__heading,
+.testimonials__text--right .testimonials__footer {
   text-align: right;
 }
 
-.testimonial footer span {
-  display: block;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-  font-size: 0.75rem;
+.testimonials__text--right .testimonials__body {
+  text-align: justify;
 }
 
-.testimonial--second footer {
+.testimonials__text--left .testimonials__eyebrow,
+.testimonials__text--left .testimonials__heading,
+.testimonials__text--left .testimonials__footer {
   text-align: left;
 }
 
+.testimonials__text--left .testimonials__body {
+  text-align: justify;
+}
+
+.testimonials__eyebrow {
+  margin: 0 0 0.3rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: "Luxury", serif;
+  font-size: clamp(1rem, 1.4vw, 1.4rem);
+  letter-spacing: 0.03em;
+}
+
+.testimonials__heading {
+  margin: 0 0 1rem;
+  color: var(--gold-light);
+  font-family: "Luxury", serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.testimonials__body {
+  margin: 0 0 1.5rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem);
+  line-height: 1.85;
+}
+
+.testimonials__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.testimonials__name {
+  color: var(--gold-light);
+  font-family: "Luxury", serif;
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+  font-weight: 400;
+}
+
+.testimonials__role {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  letter-spacing: 0.02em;
+}
+
 .enquire {
-  min-height: 820px;
+  min-height: 0;
   display: grid;
   align-content: center;
-  padding: 6rem 1.5rem 7rem;
+  padding: 4rem 1.5rem 5rem;
   background: linear-gradient(rgba(0,0,0,0.36), rgba(0,0,0,0.36)), url("../../public/Rectangle 124.png") center / cover no-repeat;
 }
 
@@ -767,9 +843,103 @@
     padding: 1.5rem;
   }
 
-  /* Testimonial image — tall 1920×1924 asset, cap on mobile */
-  .testimonial-image img {
-    max-height: 380px;
+  /* --- Mobile Testimonials --- */
+  .testimonials__card {
+    padding: 2.5rem 1rem;
+    display: block;
+    min-height: 0;
+  }
+
+  /* Hide desktop SVG completely */
+  .testimonials__svg {
+    display: none !important;
+    position: absolute !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  /* Mobile card: styled div, full width, grows with text */
+  .testimonials__mobile-wrap {
+    display: block;
+    width: 100%;
+    position: relative;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 1.5rem;
+    overflow: hidden;
+  }
+
+  /* Quote mark decoration at top-left using ::before */
+  .testimonials__mobile-wrap::before {
+    content: "\201C";
+    position: absolute;
+    top: -0.5rem;
+    left: 1rem;
+    font-size: 5rem;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.18);
+    font-family: Georgia, serif;
+    pointer-events: none;
+  }
+
+  .testimonials__mobile-svg-img {
+    display: none;
+  }
+
+  /* Text inside the card */
+  .testimonials__mobile-text {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 1.4rem 2rem;
+    box-sizing: border-box;
+  }
+
+  .testimonials__mobile-text .testimonials__eyebrow {
+    font-size: 0.75rem;
+    margin-bottom: 0.4rem;
+    color: rgba(255, 255, 255, 0.75);
+    text-align: right;
+  }
+
+  .testimonials__mobile-text .testimonials__heading {
+    font-size: 1.15rem;
+    line-height: 1.15;
+    margin-bottom: 0.9rem;
+    text-align: right;
+  }
+
+  .testimonials__mobile-text .testimonials__body {
+    font-size: 0.82rem;
+    line-height: 1.75;
+    margin-bottom: 1.2rem;
+    text-align: justify;
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .testimonials__mobile-text .testimonials__footer {
+    text-align: right;
+  }
+
+  .testimonials__card--second .testimonials__mobile-text .testimonials__eyebrow,
+  .testimonials__card--second .testimonials__mobile-text .testimonials__heading,
+  .testimonials__card--second .testimonials__mobile-text .testimonials__footer {
+    text-align: left;
+  }
+
+  .testimonials__card--second .testimonials__mobile-wrap::before {
+    left: auto;
+    right: 1rem;
+    content: "\201D";
+  }
+
+  .testimonials__mobile-text .testimonials__name {
+    font-size: 0.9rem;
+  }
+
+  .testimonials__mobile-text .testimonials__role {
+    font-size: 0.65rem;
   }
 
   /* Enquire / Form */

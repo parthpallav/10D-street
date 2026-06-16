@@ -1,4 +1,59 @@
 (function () {
+  function resizeTestimonialSVGs() {
+    // Desktop horizontal SVGs (viewBox 0 0 1332 H, card body starts at y=141)
+    document.querySelectorAll(".testimonials__svg").forEach(function (svg) {
+      if (getComputedStyle(svg).display === "none") return;
+      var fo = svg.querySelector(".testimonials__fo");
+      var inner = fo ? fo.querySelector(".testimonials__text") : null;
+      if (!fo || !inner) return;
+      var svgW = svg.getBoundingClientRect().width;
+      if (!svgW) return;
+      var scale = svgW / 1332;
+      // scrollHeight is in screen px — convert to SVG units
+      var contentH = inner.scrollHeight / scale;
+      var totalH = 141.287 + contentH + 40;
+      svg.setAttribute("viewBox", "0 0 1332 " + Math.ceil(totalH));
+      fo.setAttribute("height", Math.ceil(contentH + 40));
+    });
+
+    // Mobile vertical SVGs (viewBox 0 0 1332 H, card body starts at y=289)
+    document.querySelectorAll(".testimonials__svg--mobile").forEach(function (svg) {
+      if (getComputedStyle(svg).display === "none") return;
+      var fo = svg.querySelector(".testimonials__fo--mobile");
+      var inner = fo ? fo.querySelector(".testimonials__text") : null;
+      if (!fo || !inner) return;
+      var svgW = svg.getBoundingClientRect().width;
+      if (!svgW) return;
+      var scale = svgW / 1332;
+
+      // Force foreignObject width to match rendered SVG width in SVG units
+      // so text wraps correctly before we measure
+      fo.setAttribute("width", "1280");
+
+      // scrollHeight on foreignObject content is in screen px
+      // divide by scale to get SVG coordinate units
+      var contentH = inner.scrollHeight / scale;
+      var bodyStart = 300;
+      var bottomPad = 80;
+      var totalH = bodyStart + contentH + bottomPad;
+      svg.setAttribute("viewBox", "0 0 1332 " + Math.ceil(totalH));
+      fo.setAttribute("height", Math.ceil(contentH + bottomPad));
+    });
+  }
+
+  // Run once fonts/images loaded, then on resize
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      resizeTestimonialSVGs();
+      // Re-run after fonts settle
+      setTimeout(resizeTestimonialSVGs, 300);
+    });
+  } else {
+    resizeTestimonialSVGs();
+    setTimeout(resizeTestimonialSVGs, 300);
+  }
+  window.addEventListener("resize", resizeTestimonialSVGs);
+
   var form = document.getElementById("enquiry-form");
 
   function validate(input) {
@@ -46,17 +101,7 @@
       return;
     }
     setTimeout(function () {
-      form.hidden = true;
-      var success = document.querySelector(".form-success");
-      success.hidden = false;
-      setTimeout(function () {
-        success.hidden = true;
-        form.reset();
-        form.querySelectorAll(".has-error").forEach(function (el) {
-          el.classList.remove("has-error");
-        });
-        form.hidden = false;
-      }, 4000);
+      window.location.href = "thank-you.html";
     }, 500);
   });
 })();
