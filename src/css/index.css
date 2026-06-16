@@ -698,9 +698,10 @@
   .stories article {
     padding: 1.5rem 1.75rem;
   }
+
 }
 
-@media (max-width: 680px) {
+@media (max-width: 1024px) {
   :root {
     --shell: min(100% - 30px, 1332px);
   }
@@ -846,7 +847,7 @@
 
   /* --- Mobile Testimonials --- */
   .testimonials__card {
-    padding: 4rem 1rem;
+    padding: 0;
     display: block;
     min-height: 0;
   }
@@ -921,21 +922,21 @@
   }
 
   .testimonials__mobile-text .testimonials__eyebrow {
-    font-size: 0.75rem;
+    font-size: clamp(0.75rem, 1.5vw, 1.1rem);
     margin-bottom: 0.4rem;
     color: rgba(255, 255, 255, 0.75);
     text-align: right;
   }
 
   .testimonials__mobile-text .testimonials__heading {
-    font-size: 1.15rem;
-    line-height: 1.15;
+    font-size: clamp(1.15rem, 3vw, 1.8rem);
+    line-height: 1.2;
     margin-bottom: 0.9rem;
     text-align: right;
   }
 
   .testimonials__mobile-text .testimonials__body {
-    font-size: 0.82rem;
+    font-size: clamp(0.82rem, 1.6vw, 1.05rem);
     line-height: 1.75;
     margin-bottom: 1.2rem;
     text-align: justify;
@@ -952,15 +953,14 @@
     text-align: left;
   }
 
-
-
   .testimonials__mobile-text .testimonials__name {
-    font-size: 0.9rem;
+    font-size: clamp(0.9rem, 1.8vw, 1.2rem);
   }
 
   .testimonials__mobile-text .testimonials__role {
-    font-size: 0.65rem;
+    font-size: clamp(0.65rem, 1.2vw, 0.9rem);
   }
+
 
   /* Enquire / Form */
   .enquire {
@@ -981,5 +981,55 @@
   .site-footer {
     min-height: 0;
     padding: 3.5rem 1rem;
+  }
+}
+
+/* Tablet testimonial overrides: 681px–1024px */
+@media (min-width: 681px) and (max-width: 1024px) {
+  .testimonials__card {
+    padding: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  .testimonials__mobile-wrap {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .testimonials__mobile-text {
+    padding: 4rem 3rem 3rem;
+  }
+
+  .testimonials__mobile-text .testimonials__eyebrow {
+    font-size: 1rem;
+  }
+
+  .testimonials__mobile-text .testimonials__heading {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .testimonials__mobile-text .testimonials__body {
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
+  .testimonials__mobile-text .testimonials__name {
+    font-size: 1.1rem;
+  }
+
+  .testimonials__mobile-text .testimonials__role {
+    font-size: 0.85rem;
+  }
+
+  .testimonials__card--first::after,
+  .testimonials__card--second::after {
+    font-size: clamp(8rem, 16vw, 14rem);
+    top: 0.5rem;
   }
 }
